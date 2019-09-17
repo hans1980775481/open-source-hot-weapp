@@ -1,0 +1,95 @@
+<!-- <import src="../wxParse/wxParse.wxml"/> -->
+<navigationBar id="navigationBar" leftButton="{{leftButton}}" color="{{color}}" title="{{title}}" background="{{barBg}}"></navigationBar>
+
+<view bindtap="userRepo">
+    <image src="{{picture}}" mode="aspectFill" lazy-load="true" style='width: 35px;height: 35px;float:left;margin:10px 10px'></image>
+    <!--  -->
+    <view style="float:left;margin-top:15px;font-size:16px;color:blue" >{{repo}}</view>
+</view>
+
+
+<view style="float:right;margin-right:10px">
+  <view url="" class="weui-grid" hover-class="weui-grid_active" bindtap="copy">
+    <image class="weui-grid__icon" src="../img/link.png" />
+    <view class="weui-grid__label">复制链接</view>
+  </view>
+  <view url="" class="weui-grid" hover-class="weui-grid_active" bindtap="collection" wx:if="{{stars}}">
+    <image class="weui-grid__icon" src="{{collectionIcon}}" />
+    <!-- ?已收藏:收藏 -->
+    <view class="weui-grid__label">{{isExist?'已收藏':'收藏'}}</view>
+  </view>
+  
+</view>
+
+<view style="margin:55px 10px 0px 10px;font-size:12px;color:#888888">{{desc}}</view>
+
+ <view style="margin:5px 0px 20px 10px" wx:if="{{stars}}">
+    <image src="../img/star.png" style='width: 10px;height: 10px;float:left;margin:3px 5px 0px 0px' />
+    <view style="float:left;margin-right:20px;color:#888888;font-size:12px;">{{stars}}</view>
+
+    <image src="../img/fork.png" style='width: 10px;height: 10px;float:left;margin:3px 5px 0px 0px' />
+    <view style="float:left;color:#888888;font-size:12px;">{{forks}}</view>
+</view>
+
+
+<!-- <view class="container" > -->
+  <block wx:if="{{starsArray}}">
+      <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
+  </block>
+<!-- </view> -->
+
+<view class="page">
+    
+  <view class="page__bd">
+    <view class="weui-tab">
+      <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+      <view class="weui-tab__panel">
+      <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+          <!-- 选项一的内容 -->
+          <htmltowxml class="left-code" type="markdown" padding="100px" text="{{article}}" bindWxmlTagATap="wxmlTagATap" />
+        </view>
+
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+          <!-- 选项二的内容 -->
+          <view class="tableView">
+
+            <view bindtap='back' hidden='{{codePage == 1 }}' hover-class="btn-hover">
+              <image src='../img/break.png' class='break'></image>
+            </view>
+            <block wx:for="{{ listData }}" wx:for-item="code" wx:key="key">
+              <view class="table_cell" hover-class="btn-hover" bindtap='reloadCode' data-type='{{code.isFile}}' data-codeurl='{{code.codeUrl}}' data-filename='{{code.fileName}}' data-downloadurl='{{code.download_url}}'>
+                <view class="td td2" hidden="{{code.isFile == 0}}">
+                  <image src='../img/file.png' class='img' />
+                </view>
+                <view class="td td2" hidden="{{code.isFile == 1}}">
+                  <image src='../img/dir.png' class='img' />
+                </view>
+
+                <view class="td td3">{{code.fileName}}</view>
+              </view>
+            </block>
+
+          </view>
+
+        </view>
+
+
+        
+        <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+          <!-- 选项三的内容 -->
+          功能待完善
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<!--pages/project/project.wxml-->

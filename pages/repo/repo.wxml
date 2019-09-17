@@ -1,0 +1,29 @@
+<navigationBar id="navigationBar" leftButton="{{leftButton}}" color="{{color}}" title="{{title}}" background="{{barBg}}"></navigationBar>
+
+<wux-toast id="wux-toast" />
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title" wx:if="{{title}}">{{title}}的仓库</view>
+    <view class="page__desc"></view>
+  </view>
+
+
+  <view wx:for='{{list}}' wx:for-index='index'>
+
+    <navigator class='navigator' url="../{{item.type==0?'project/project':'projectee/projectee'}}?url={{item.url}}&projectName={{item.projectName}}">
+      <wux-swipe-action autoClose right="{{ right }}" bind:click="swipeClick" bind:click="addColl" data-url="{{item.url}}"
+        data-index="{index}" data-projectName="{{item.projectName}}" data-type="{{item.type}}">
+        <i-card title="{{item.projectName}}" extra="{{item.star}}">
+          <view slot="content">{{item.desc}}</view>
+          <view slot="footer">
+            <block wx:if="{{item.language}}">
+              <i-tag color="blue">{{item.language}}</i-tag>
+            </block>
+          </view>
+        </i-card>
+      </wux-swipe-action>
+      </navigator>
+
+  </view>
+
+</view>

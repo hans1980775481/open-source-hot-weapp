@@ -1,0 +1,16 @@
+{
+  "usingComponents": {
+      "i-card": "../../style/card/index",
+      "i-tag": "../../style/tag/index",
+      "wux-picker": "../../wux/picker/index",
+      "wux-cell-group": "../../wux/cell-group/index",
+      "wux-cell": "../../wux/cell/index",
+      "wux-button": "../../wux/button/index",
+      "wux-toast": "../../wux/toast/index",
+      "wux-swipe-action-group": "../../wux/swipe-action-group/index",
+      "wux-swipe-action": "../../wux/swipe-action/index",
+      "wux-icon": "../../wux/icon/index",
+      "wux-prompt": "../../wux/prompt/index",
+      "navigationBar": "../../style/navigationBar/index"
+  }
+}

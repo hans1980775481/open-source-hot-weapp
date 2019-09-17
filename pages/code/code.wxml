@@ -1,0 +1,7 @@
+<!--pages/code/code.wxml-->
+<navigationBar id="navigationBar" leftButton="{{leftButton}}" color="{{color}}" title="{{title}}"  background="{{barBg}}"  ></navigationBar>
+
+ <htmltowxml class="left-code" type="markdown"                
+padding="100px"  text="{{codeMD}}" bindWxmlTagATap="wxmlTagATap" />
+
+

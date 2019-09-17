@@ -1,0 +1,55 @@
+{
+    "pages": [
+    "pages/github/github",
+    "pages/collection/collection",
+    "pages/project/project",
+    "pages/gitee/gitee",
+    "pages/code/code",
+    "pages/projectee/projectee",
+    "pages/repo/repo",
+    "pages/github-trending/github-trending"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true,
+    "navigationStyle":"custom"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "borderStyle": "black",
+    "list": [
+      {
+        "selectedIconPath": "pages/img/github-selecte.png",
+        "iconPath": "pages/img/github.png",
+        "pagePath": "pages/github/github",
+        "text": "github"
+      },
+      {
+        "selectedIconPath": "pages/img/gitee-selected.png",
+        "iconPath": "pages/img/gitee.png",
+        "pagePath": "pages/gitee/gitee",
+        "text": "gitee"
+      },
+      {
+        "selectedIconPath": "pages/img/collection-selected.png",
+        "iconPath": "pages/img/collection.png",
+        "pagePath": "pages/collection/collection",
+        "text": "收藏夹"
+      }
+    ]
+  },
+  "plugins": {
+    "htmltowxml": {
+      "version": "1.4.0",
+      "provider": "wxa51b9c855ae38f3c"
+    }
+  },
+  "usingComponents": {
+    "wux-toast": "wux/toast/index"
+  }
+}

@@ -1,0 +1,43 @@
+<navigationBar id="navigationBar" leftButton="{{leftButton}}" color="{{color}}" title="{{title}}"
+    background="{{barBg}}"></navigationBar>
+
+<wux-toast id="wux-toast" />
+
+<view class='page'>
+
+    <wux-picker visible="{{ visible }}" controlled options="{{ seasons }}" value="{{value}}" data-index="1"
+        bind:confirm="pickerConfirm" bind:visibleChange="onVisibleChange" />
+    <wux-button block clear type="calm" size="small" bind:click="onClick">{{ displayValue }}</wux-button>
+
+
+    <view wx:for='{{list}}' wx:for-index='index'>
+        <navigator class='navigator' url='../project/project?url={{item.url}}&projectName={{item.projectName}}'>
+
+            <wux-swipe-action autoClose right="{{ right }}" bind:click="addColl" data-projectName="{{item.projectName}}"
+                data-url="{{item.url}}">
+                <i-card title="{{item.projectName}}" extra="{{item.star}}">
+                    <view slot="content">{{item.desc}}</view>
+                    <view slot="footer">
+
+                        <view style="padding-bottom: 20px">
+                            <view class="" style="float: left;">
+                                <block wx:if="{{item.lang}}">
+                                    <i-tag style="margin-right:15px;" color="blue">{{item.lang}}</i-tag>
+                                </block>
+                            </view>
+
+                            <view style="float: right">
+                                <image src='../../pages/img/small_star.png' class='img'
+                                    style='width: 12px;height: 12px;'></image>
+                                {{item.today}}
+                            </view>
+
+                        </view>
+
+                    </view>
+                </i-card>
+            </wux-swipe-action>
+        </navigator>
+
+    </view>
+</view>

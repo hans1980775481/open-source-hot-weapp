@@ -1,0 +1,94 @@
+/* pages/project/project.wxss */
+
+page,
+.page,
+.page__bd{
+    height: 100%;
+}
+.page__bd{
+    padding-bottom: 0;
+}
+
+
+.tableView{
+  margin-top: 10px;
+  border:0px solid rgba(177, 157, 157, 0.445);
+  border-right:0;
+  border-bottom: 0;
+  width: 98%;
+  margin-left: 1%;
+}
+/* 表头 */
+.table_header{
+  display: flex;
+  justify-content: space-between; /* 项目位于各行之间留有空白的容器内。 */
+  background-color: #fffb00;
+  width: 100%;
+  font-size: 35rpx;
+  color: #330e0e;
+  text-align: center;
+  font-weight: 900;
+} 
+.th{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10rpx;
+  border-bottom: 1px solid rgba(177, 157, 157, 0.445);
+  border-right: 1px solid rgba(177, 157, 157, 0.445);
+}
+.th2{
+  width: 10%
+}
+.th3{
+  width: 90%
+}
+/* 表格cell */
+.table_cell{
+  
+  display: flex;
+  justify-content: space-between; /* 项目位于各行之间留有空白的容器内。 */
+  width: 100%;
+  font-size: 26rpx;
+  color:#385791;
+  text-align: left;
+}
+.td{
+  margin-top: 10px;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  height: 60rpx;
+  border: 0px solid rgba(177, 157, 157, 0.445);
+  /* border-top: 1px solid rgba(177, 157, 157, 0.445); */
+  border-bottom: 1px solid rgba(177, 157, 157, 0.445);
+  
+} 
+.td1,.td2{
+  width: 8%;
+  padding-left: 10px
+  
+} 
+.td3{
+  width: 90%;
+ padding-right: 10px
+}
+
+.img{  
+  margin-top: 2px;
+  width: 14px;
+  height: 14px;
+}
+
+.break{
+  padding-left: 10px;
+  width: 16px;
+  height: 16px;
+}
+
+
+.btn-hover{
+  position: relative;
+  /* top: 3rpx; */
+  box-shadow:0px 0px 8px rgb(230, 131, 131) inset; 
+}

@@ -1,0 +1,4 @@
+/* pages/code/code.wxss */
+.left-code{
+  font-size: 100px
+}

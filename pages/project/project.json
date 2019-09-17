@@ -1,0 +1,8 @@
+    {
+      "enablePullDownRefresh": true,
+      "usingComponents": {
+        "htmltowxml": "plugin://htmltowxml/view",
+        "navigationBar": "../../style/navigationBar/index"
+      },
+      "disableSwipeBack": true
+    }

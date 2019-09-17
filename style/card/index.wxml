@@ -1,0 +1,17 @@
+<view class="i-class i-card {{ full ? 'i-card-full' : '' }}">
+    <view class="i-class i-card-header">
+        <view class="i-card-header-content">
+            <image class="i-card-header-thumb" src="{{ thumb }}" mode="aspectFit" wx:if="{{ thumb }}" />
+            {{ title }}
+        </view>
+        <view class="i-card-header-extra" wx:if="{{ extra }}">{{ extra }}
+        <image src='../../pages/img/star.png' class='img' style='width: 16px;height: 16px;'></image>
+        </view>
+
+        <view class="i-card-header-extra" wx:if="{{ fork }}">{{ fork }}
+            <image src='../../pages/img/fork.png' class='img' style='width: 16px;height: 16px;'></image>
+        </view>
+    </view>
+    <view class="i-class i-card-body"><slot name="content"></slot></view>
+    <view class="i-class i-card-footer"><slot name="footer"></slot></view>
+</view>

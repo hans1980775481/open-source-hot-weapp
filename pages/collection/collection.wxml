@@ -1,0 +1,26 @@
+<navigationBar id="navigationBar" color="{{color}}" title="{{title}}" back="{{false}}" background="{{barBg}}"></navigationBar>
+<wux-toast id="wux-toast" />
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">我的收藏</view>
+    <view class="page__desc"></view>
+  </view>
+
+
+  <view class="weui-tab__content">
+    <wux-prompt visible="{{ list.length === 0 }}" title="{{ msg.title }}" text="{{ msg.text }}" />
+  </view>
+
+
+  <block wx:for='{{list}}' wx:for-index='index'>
+    <navigator class='navigator' url="../{{item.type==0?'project/project':'projectee/projectee'}}?url={{item.url}}&projectName={{item.projectName}}">
+      <wux-swipe-action autoClose right="{{ right }}" bind:click="swipeClick" bind:click="delColl" data-url="{{item.url}}" data-index="{{index}}">
+        <i-card title="{{item.projectName}}">
+          <view slot="content">{{item.url}}</view>
+          <view slot="footer">收藏于：{{item.create}}</view>
+        </i-card>
+      </wux-swipe-action>
+    </navigator>
+
+  </block>
+</view>

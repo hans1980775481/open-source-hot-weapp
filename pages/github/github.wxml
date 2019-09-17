@@ -1,0 +1,61 @@
+<navigationBar id="navigationBar" color="{{color}}" title="{{title}}" back="{{false}}" background="{{barBg}}" goto="trending"  bindgoto="onGoto"></navigationBar>
+<wux-toast id="wux-toast" />
+
+<block wx:if="{{notice}}">
+    <wux-notice-bar mode="closable" loop trailing="3000" content="{{notice}}">
+        <button open-type='feedback' wx:if="{{show_feedback}}" slot="footer" style="margin-right: 10px;margin-left: 15px;font-size: 10px;">反馈</button>
+    </wux-notice-bar>
+</block>
+
+
+<view class='page'>
+
+  <view class="weui-search-bar">
+    <view class="weui-search-bar__form">
+      <view class="weui-search-bar__box">
+        <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+        <input type="text" class="weui-search-bar__input" placeholder="{{placeholder}}" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm="searchConfirm" />
+        <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+          <icon type="clear" size="14"></icon>
+        </view>
+      </view>
+      <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+        <icon class="weui-icon-search" type="search" size="14"></icon>
+        <view class="weui-search-bar__text">{{placeholder}}</view>
+      </label>
+    </view>
+    <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+  </view>
+
+
+  <wux-picker visible="{{ visible }}" controlled options="{{ seasons }}" value="{{value}}" data-index="1" bind:confirm="pickerConfirm" bind:visibleChange="onVisibleChange" />
+  <wux-button block clear type="calm" size="small" bind:click="onClick">{{ displayValue }}</wux-button>
+
+
+  <view wx:for='{{list}}' wx:for-index='index'>
+    <navigator class='navigator' url='../project/project?url={{item.url}}&projectName={{item.projectName}}'>
+
+      <wux-swipe-action autoClose right="{{ right }}" bind:click="addColl" data-projectName="{{item.projectName}}" data-url="{{item.url}}">
+        <i-card title="{{item.projectName}}" extra="{{item.star}}">
+          <view slot="content">{{item.desc}}</view>
+          <view slot="footer">
+            <i-tag class="index{{index+1}}" color="yellow" style="margin-right:5px;">{{index+1}}</i-tag>
+
+            <block wx:if="{{item.lang}}">
+              <i-tag style="margin-right:5px;">{{item.lang}}</i-tag>
+            </block>
+
+            <i-tag wx:for="{{item.tags}}" style="margin-right:5px;" color="blue" wx:for-item="tag">
+              {{tag}}
+            </i-tag>
+
+          </view>
+        </i-card>
+      </wux-swipe-action>
+    </navigator>
+
+
+
+  </view>
+</view>
+<image src='../img/top.png' class='goTop' hidden='{{index <= 1}}' bindtap='goTop'></image>
