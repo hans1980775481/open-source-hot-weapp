@@ -7,11 +7,12 @@
 - [wux-weapp](https://github.com/wux-weapp/wux-weapp "wux-weapp")提供UI组件库
 - [html2wxml](https://github.com/qwqoffice/html2wxml "html2wxml")提供富文本渲染组件
 
+
 ## 部署方式
-- 由于[html2wxml]富文本组件采用插件方式引用，需要在小程序公众平台添加[<font color=#FF0000 >html2wxml富文本组件</font>]插件，如下图所示
+- 由于[html2wxml]富文本组件采用插件方式引用，需要在小程序公众平台添加[**html2wxml富文本组件**]插件，如下图所示
 ![](https://www.svipss.top/20190917/html2wxml.jpg)
 
-- 在小程序全局参数配置[<font color=#FF0000 >project.config.json</font>]中，设置你自己的appid
+- 在小程序全局参数配置[**project.config.json**]中，设置你自己的appid
 
 ![](https://www.svipss.top/20190917/config.json.png)
 
